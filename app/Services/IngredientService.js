@@ -30,7 +30,11 @@
                 return DALService.executeQuery(rootUrl, 'getAllIngredients')
                     .then(function(data) {
                         if(data) {
-                            return data;
+                            if(angular.isArray(data)) return data;
+
+                            var arrayData = [];
+                            arrayData.push(data);
+                            return arrayData;
                         }
                     }, function(errResponse) {
                         $log.log('SERVICE ERROR: ' + errResponse);
