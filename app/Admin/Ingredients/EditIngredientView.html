@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4 class="modal-title text-center">.: Edit Ingredient :.</h4>
+</div>
+<div class="modal-body">
+    <form name="frmEditIngredient">
+        <div class="frm-group">
+            <label for="txtIngredientName">Name</label>
+            <input class="form-control" type="text" name="txtIngredientName" ng-model="ingredient.name" validation="required|alpha_dash_spaces" autocomplete="off">
+        </div>
+        <div class="frm-group">
+            <br>
+            <label for="ddlMeasureType">How will '{{ingredient.name}}' be measured?</label>
+            <select name="ddlMeasureType" class="form-control" ng-model="ingredient.measureType" validation="alpha_dash:alt=Must choose a measurement type.|required">
+                <option value="">...</option>
+                <option value="weight">Weight</option>
+                <option value="pieces">Pieces</option>
+            </select>
+        </div>
+        <div class="frm-group" ng-hide="(ingredient.measureType !== 'weight')">
+            <br>
+            <label for="txtGramsPerCup">How many grams per cup are in '{{ingredient.name}}'?</label>
+            <input type="text" name="txtGramsPerCup" class="form-control" ng-model="ingredient.gramsPerCup" validation="required|int|min_num:1" ng-disabled="(ingredient.measureType !== 'weight')" autocomplete="off">
+            <a href="http://www.gourmetsleuth.com/conversions/grams/grams-to-cups-conversions" target="_blank">Lookup ingredient weights</a>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

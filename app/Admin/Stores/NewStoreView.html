@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h4 class="modal-title text-center">.: New Store :.</h4>
+</div>
+<div class="modal-body">
+    <form name="frmAddStore">
+        <div class="frm-group">
+            <label for="storeName">Name</label>
+            <input class="form-control" type="text" name="storeName" ng-model="store.name" validation="required|alpha_dash_spaces" autocomplete="off">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

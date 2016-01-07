@@ -1,0 +1,24 @@
+<div class="col-md-4">
+            <h4>Form State</h4>
+            <ul>
+                <li>{{frmRecipe.$pristine ? 'pristine' : 'dirty'}}</li>
+                <li>{{frmRecipe.$valid ? 'valid' : 'invalid'}}</li>
+                <li>{{frmRecipe.$submitted ? 'submitted' : 'not submitted'}}</li>
+            </ul>
+            <h4>Error Report</h4>
+            <ul>
+                <li ng-repeat="(key, errors) in frmRecipe.$error track by $index">
+                    <strong>{{key}}</strong> errors
+                    <ul>
+                        <li ng-repeat="e in errors">
+                            {{e.$name}} has an error: <strong>{{key}}</strong>.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h4><strong>ERRORS!</strong></h4>
+            <ul>
+                <li ng-repeat="item in frmRecipe.$validationSummary">{{item.field}}: {{item.message}}</li>
+            </ul>
+        </div>
+    </div>

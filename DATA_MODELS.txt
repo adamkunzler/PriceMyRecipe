@@ -1,0 +1,29 @@
+__________
+* USERS
+id, username
+__________
+* RECIPE
+
+id, userId, name, numServings, notes
+
+__________
+* INGREDIENT
+
+id, name, measureType, gramsPerCup
+
+__________
+* STORE
+
+id, userId, name, notes
+
+
+__________
+* STORE INGREDIENT
+
+id, ingredientID, storeID, quantity, quantityType, cost, isOrganic
+
+
+__________
+* RECIPE INGREDIENT
+
+id, ingredientID, recipeID, storeIngredientID, wholeAmount, partialAmount, measurementType

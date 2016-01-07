@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">.: RECIPE INGREDIENT DETAILS :.</h3>
+                </div>
+                <div class="panel-body">
+                    <form name="frmRecipeIng" novalidate>
+                        <div class="frm-group">
+                            <label>How much 'ingredient' does the recipe call for?</label>
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td valign="top">
+                                            <input type="text" name="txtWholeQty" class="form-control" placeholder="Whole Amount" ng-model="recipeIngredient.wholeAmount" validation="numeric" validation-error-to="errWholeAmount" autocomplete="off">
+                                        </td>
+                                        <td valign="top">
+                                            <select name="ddlPartialQty" class="form-control" ng-model="recipeIngredient.partialAmount" ng-options="pa for pa in partialAmounts">
+                                                <option value="">...</option>
+                                            </select>
+                                        </td>
+                                        <td valign="top">
+                                            <select name="ddlMeasurement" class="form-control" ng-model="recipeIngredient.measurementType" validation="required:alt=Must choose a measurement type." validation-error-to="errMeasureType" ng-options="mt.name for mt in measurementTypes">
+                                                <option value="">...</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <span id="errWholeAmount" class="validation text-danger"></span>
+                            <span id="errMeasureType" class="validation text-danger"></span>
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary pull-left" ng-click="goBack()">Back to Recipe</button>
+                        <button class="btn btn-primary pull-right" ng-click="addToRecipe()">Add to Recipe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    </div>
+</div>

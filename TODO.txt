@@ -1,0 +1,11 @@
+- ability to sort ingredients on the recipe page
+- edit ingredients from the recipe
+- ability to attach a specific store instance to an ingredient on a recipe (currently...if you change a store's details...it will affect all recipes)
+- track store ingredient history and display it in some way
+- better home page (ideas for content?)
+- login page for multiple users (currently a single user is hard coded...won't be too difficult to add on to that)
+- admin role so that only specific users can view the admin links (or perhaps specific admin links)
+- ingredients label
+- shopping list
+- add a tabs to the main recipe page to toggle between ingredients cost break down and recipe instructions
+- improved recipe menu

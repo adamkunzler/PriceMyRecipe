@@ -1,0 +1,27 @@
+<br>
+<br>
+<br>
+<br>
+<div class="container-responsive">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form name="frmUserLogin" novalidate>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" ng-model="login.username" validation="required|alpha_num">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" ng-model="login.password" validation="required">
+                </div>
+                <br>
+                <button class="btn btn-primary pull-right" ng-click="login(login.username, login.password)">Login</button>
+            </form>
+            <br>
+            <br>
+            <div class="alert alert-danger" ng-show="login.error">
+                <strong>Error!</strong> {{login.error}}
+            </div>
+        </div>
+    </div>
+</div>
