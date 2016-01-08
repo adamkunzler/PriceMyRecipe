@@ -8,6 +8,8 @@
             var rootUrl = 'http://apps.adamkunzler.com/tempPrice/PHP/recipes.php';
             var userId = UserService.currentUser.id;
 
+            var apostrophe = 'APOSTROPHE';
+
             /*
             	Get an ingredient by id
              */
@@ -15,7 +17,8 @@
                 return DALService.executeQuery(rootUrl, 'getRecipeById', ['id=' + id])
                     .then(function(data) {
                         if (data) {
-                            data.notes = data.notes.replace('\'\'', '\'');
+                            var regex = new RegExp(apostrophe, 'g');
+                            data.notes = data.notes.replace(regex, '\'');
                             return data;
                         } else {
                             return $q.reject();
@@ -32,7 +35,20 @@
                 return DALService.executeQuery(rootUrl, 'getAllRecipes', ['userId=' + userId])
                     .then(function(data) {
                         if(data) {
-                            return data;
+                            var arrayData = [];
+
+                            if(!angular.isArray(data)) {
+                                arrayData.push(data);
+                            } else {
+                                arrayData = data;
+                            }
+
+                            angular.forEach(arrayData, function(value) {
+                                var regex = new RegExp(apostrophe, 'g');
+                                value.notes = value.notes.replace(regex, '\'');
+                            });
+
+                            return arrayData;
                         }
                     }, function(errResponse) {
                         $log.log('SERVICE ERROR: ' + errResponse);
@@ -43,7 +59,7 @@
             	Update an recipe
              */
             service.updateRecipe = function(recipe) {
-                var cleanNotes = recipe.notes.replace('\'', '\'\'');
+                var cleanNotes = recipe.notes.replace(/\'/g, apostrophe);
 
                 var params = [
                         'id=' + recipe.id,
