@@ -15,6 +15,7 @@
                 return DALService.executeQuery(rootUrl, 'getRecipeById', ['id=' + id])
                     .then(function(data) {
                         if (data) {
+                            data.notes = data.notes.replace('\'\'', '\'');
                             return data;
                         } else {
                             return $q.reject();
@@ -25,7 +26,7 @@
             };
 
             /*
-            	Get an arrary of all ingredients
+            	Get an arrary of all recipes
              */
             service.getAllRecipes = function() {
                 return DALService.executeQuery(rootUrl, 'getAllRecipes', ['userId=' + userId])
@@ -42,11 +43,13 @@
             	Update an recipe
              */
             service.updateRecipe = function(recipe) {
+                var cleanNotes = recipe.notes.replace('\'', '\'\'');
+
                 var params = [
                         'id=' + recipe.id,
                         'name=' + recipe.name,
                         'numServings=' + recipe.numServings,
-                        'notes=' + recipe.notes,
+                        'notes=' + cleanNotes,
                         'userId=' + userId
                     ];
 

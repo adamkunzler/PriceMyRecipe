@@ -5,7 +5,7 @@
     <form name="frmEditIngredient">
         <div class="frm-group">
             <label for="txtIngredientName">Name</label>
-            <input class="form-control" type="text" name="txtIngredientName" ng-model="ingredient.name" validation="required|alpha_dash_spaces" autocomplete="off">
+            <input class="form-control" type="text" name="txtIngredientName" ng-model="ingredient.name" validation="required|pattern=/([\w\d\s\,\-])+/" autocomplete="off">
         </div>
         <div class="frm-group">
             <br>

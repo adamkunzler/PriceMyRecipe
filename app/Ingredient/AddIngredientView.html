@@ -25,7 +25,7 @@
                             <h4>Custom Ingredient</h4>
                             <div class="frm-group">
                                 <label for="txtIngredientName">Name</label>
-                                <input class="form-control" type="text" name="txtIngredientName" ng-model="ingredient.name" validation="required|alpha_dash_spaces" ng-disabled="!isCustom" autocomplete="off">
+                                <input class="form-control" type="text" name="txtIngredientName" ng-model="ingredient.name" validation="required|pattern=/([\w\d\s\,\-])+/" ng-disabled="!isCustom" autocomplete="off">
                             </div>
                             <div class="frm-group">
                                 <br>
