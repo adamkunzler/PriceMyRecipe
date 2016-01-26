@@ -609,7 +609,7 @@
             $scope.calculateTotalCost = function() {
                 var cost = 0;
 
-                if(angular.isDefined($scope.model.recipe) && angular.isDefined($scope.model.recipe.ingredients)) {
+                if (angular.isDefined($scope.model.recipe) && angular.isDefined($scope.model.recipe.ingredients)) {
                     for (var i = 0; i < $scope.model.recipe.ingredients.length; i++) {
                         cost += $scope.calculateIngredientCost($scope.model.recipe.ingredients[i]);
                     }
@@ -619,7 +619,7 @@
             };
 
             $scope.calculatePerServingCost = function() {
-                if(angular.isDefined($scope.model.recipe) && angular.isDefined($scope.model.recipe.ingredients)) {
+                if (angular.isDefined($scope.model.recipe) && angular.isDefined($scope.model.recipe.ingredients)) {
                     var cost = $scope.calculateTotalCost();
                     return cost / $scope.model.recipe.numServings;
                 } else {
@@ -651,6 +651,10 @@
                 val += ' ' + $scope.measurementTypes[index].abbr;
 
                 return val;
+            };
+
+            $scope.saveToPDF = function() {
+                window.print();
             };
 
             var _formatAsFraction = function(stringVal) {
@@ -746,13 +750,14 @@
 
                 $scope.measurementTypes = MeasurementService.getMeasurementTypes();
 
-                _getAllRecipes();
-
-                var id = _getRecipeIdFromLocalStorage();
-                if (id) {
-                    _getRecipe(id);
-                    //_getIngredients(id);
-                }
+                _getAllRecipes().
+                then(function() {
+                    var id = _getRecipeIdFromLocalStorage();
+                    if (id) {
+                        _getRecipe(id);
+                        //_getIngredients(id);
+                    }
+                });
             };
 
             init();

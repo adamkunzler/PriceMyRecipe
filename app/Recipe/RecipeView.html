@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 dontprint">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title text-center">.: Menu :.</h3>
@@ -10,7 +10,7 @@
                     <hr>
                 	<h4>My Recipes:</h4>
                     <ul>
-                        <li ng-repeat="rcp in model.recipes | orderBy:name:false">
+                        <li ng-repeat="rcp in model.recipes | orderBy:'name'">
                             <a ng-click="loadRecipe(rcp.id)">{{rcp.name}}</a>
                         </li>
                     </ul>
@@ -54,7 +54,7 @@
                                     <td>{{ing.ingredient.name}}</td>
                                     <td></td>
                                     <td>{{calculateIngredientCost(ing) | currency}}</td>
-                                    <td>
+                                    <td class="dontprint">
                                         <a ng-click="deleteIngredient(ing.id)"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
@@ -77,14 +77,19 @@
                             </tfoot>
                         </table>
                     </div>
-                    <div>
+                    <div class="dontprint">
                         <a href="#/ingredient/add" class="btn btn-primary pull-left">Add Ingredient</a>
                         <button class="btn btn-primary pull-right" ng-click="editRecipe()">Edit Recipe</button>
+                        <button style="margin-right: 10px;" class="btn btn-primary pull-right" ng-click="saveToPDF()">To PDF</button>
+                    </div>
+                    <div class="yesprint">
+                        <h4>Notes:</h4>
+                        <p>{{model.recipe.notes}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 dontprint">
             <div class="panel panel-primary" ng-show="recipeLoaded">
                 <div class="panel-heading">
                     <h3 class="panel-title text-center">.: Notes :.</h3>
