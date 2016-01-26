@@ -2,6 +2,22 @@ body {
     padding-top: 60px;
 }
 
+@media screen {
+	.dontprint * {
+	}
+	.yesprint * {
+		display: none;
+	}
+}
+
+@media print {
+	.dontprint * {
+		display: none;
+	}
+	.yesprint * {
+	}
+}
+
 /*.has-error.form-control {
 	border: 2px solid #EA3030;
 }*/
