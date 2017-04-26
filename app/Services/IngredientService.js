@@ -5,7 +5,7 @@
         .factory('IngredientService', function($http, $q, $log, DALService) {
             var service = {};
 
-            var rootUrl = 'http://apps.adamkunzler.com/tempPrice/PHP/ingredients.php';
+            var rootUrl = 'http://test.adamkunzler.com/PHP/ingredients.php';
 
             /*
             	Get an ingredient by id

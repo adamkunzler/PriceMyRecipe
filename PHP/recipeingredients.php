@@ -22,7 +22,7 @@ function getGetParam($param) {
 /*
 	Set up the connection to the database
  */
-$conn = new mysqli("server", "username", "password", "database");
+$conn = new mysqli("localhost:3306", "adamkunzler", "Elizag11!", "adamkunzler_pricemyrecipe");
 
 /*
 	Build the query

@@ -5,7 +5,7 @@
 		.factory('UserService', function($q, $log, $cookies, $location, pmrConfig, DALService) {
 			var service = {};
 
-			var rootUrl = 'http://apps.adamkunzler.com/tempPrice/PHP/users.php';
+			var rootUrl = 'http://test.adamkunzler.com/PHP/users.php';
 
 			service.login = function(username, encodedPassword) {
 				var params = [

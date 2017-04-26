@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-$conn = new mysqli("server", "username", "password", "database");
+$conn = new mysqli("localhost:3306", "adamkunzler", "Elizag11!", "adamkunzler_pricemyrecipe");
 
 $queryType = htmlspecialchars($_GET["query"]);
 

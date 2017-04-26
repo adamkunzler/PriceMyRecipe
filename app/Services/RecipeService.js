@@ -5,7 +5,7 @@
         .factory('RecipeService', function($http, $q, $log, UserService, DALService) {
             var service = {};
 
-            var rootUrl = 'http://apps.adamkunzler.com/tempPrice/PHP/recipes.php';
+            var rootUrl = 'http://test.adamkunzler.com/PHP/recipes.php';
             var userId = UserService.currentUser.id;
 
             var apostrophe = 'APOSTROPHE';

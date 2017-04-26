@@ -5,7 +5,7 @@
 		.factory('StoreService', function($http, $q, $log, UserService, DALService) {
 			var service = {};
 
-			var rootUrl = 'http://apps.adamkunzler.com/tempPrice/PHP/stores.php';
+			var rootUrl = 'http://test.adamkunzler.com/PHP/stores.php';
             var userId = UserService.currentUser.id;
 
             /*
